@@ -1,1 +1,18 @@
+---
+language: go
+go:
+  - 1.11.x
+install:
+  go get github.com/gohugoio/hugo
+script:
+  - mkdir -p themes/beautifulhugo && git clone \
+    https://github.com/halogenica/beautifulhugo.git themes/beautifulhugo
+  - hugo --theme beautifulhugo
+deploy:
+  provider: pages
+  skip_cleanup: true
+  GitHub_token: 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
+  local_dir: public
+  on:
+    branch: master
 
